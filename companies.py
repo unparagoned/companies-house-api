@@ -1,18 +1,59 @@
+"""
+Python script to interact with companies house api.
+Set up to download files from companies house
+"""
+
 import requests
 import time
 import json
 from passwords import AUTH_TOKEN
+
+URI_BASE = 'https://api.companieshouse.gov.uk'
 TOKEN = AUTH_TOKEN
+RETRIES = 2
+# should index be 0?
 index = 1
-items = 10 
-total = 1000
+batch_size = 10 
+total = 40
+page_total = total / batch_size
 array = "" 
 full_details = []
-for i in range(0,2):
-	index = i * items
+
+def apiGet(uri, search_term = None, number_of_items = None, index_offset = None):
+	"""
+	This calls the companies house api
+	It retries up to "RETRIES" times if there is an error.
+	"""
+	error_count = 0
+	if (search_term is not None) or (number_of_items is not None) or (index_offset is not None):
+		params = (
+			('q', search_term),
+			('items_per_page', batch_size),
+			('start_index', index_offset)
+		)
+	while error_count < RETRIES:
+
+		response = requests.get(uri, params=params, auth=(TOKEN, ''))
+
+		if "4" in response:
+			print("Error waiting 5 min before retry")
+			time.sleep( 5*60 )
+			error_count += 1
+		else:
+			#good response
+			return response.json()
+	
+	raise ValueError('Unable to make api call: ' + response)
+	#don#t actually want program to continue should quit
+	#return response
+
+
+for page in range(0,page_total):
+	index = page * batch_size
+	
 	params = (
 		('q', 'dog'),
-		('items_per_page', items),
+		('items_per_page', batch_size),
 		('start_index', index)
 	)
 	response = requests.get('https://api.companieshouse.gov.uk/search', params=params, auth=(TOKEN, ''))
