@@ -16,8 +16,9 @@ RETRIES = 2
 # should index be 0?
 index = 1
 BATCH_SIZE_DEFAULT = 10 
-TOTAL_DEFAULT = 40
+TOTAL_COMPANIES_DEFAULT = 40
 SEARCH_DEFAULT = 'dog'
+DOCUMENTS_DEFAULT = 5
 
 array = "" 
 full_details = []
@@ -72,15 +73,23 @@ def main():
 	"""
 
 	"""
-	dprint("---Starting main")
-	args = sys.argv
+	dprint("---> Starting main")
+	args = ''.join(sys.argv)
+	dprint("ARGS: " + args)
+	
+	documents_total	= int(re.match(r'.*\-d([^\- ]*).*', args).group(1))
+	
+	dprint("docuents per entity: " + str(documents_total))
+	
 	try:
-		total = re.match(r'.*\-n([^\- ]*).*', args).group(1)
+		total = int(re.match(r'.*\-n([^\- ]*).*', args).group(1))
+		dprint("total: " + str(total) )
 	except:
-		total = TOTAL_DEFAULT
+		total = TOTAL_COMPANIES_DEFAULT
 		pass
 	try:
 		search = re.match(r'.*\-s([^\- ]*).*', args).group(1)
+		dprint("search: " + search)
 	except:
 		search = SEARCH_DEFAULT
 		pass
