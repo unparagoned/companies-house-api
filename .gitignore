@@ -2,3 +2,5 @@ passwords.py
 *~
 cache/
 .vscode
+*.pyc
+passwords*
