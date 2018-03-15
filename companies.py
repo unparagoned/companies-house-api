@@ -26,7 +26,7 @@ content_types = [ 	'application/pdf',
 
 def dprint(my_print_statement):
 	if DEBUG:
-		print(my_print_statement)
+		print(str(my_print_statement))
 		
 def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search_term = None, my_content_type = None):
 	"""
@@ -47,7 +47,7 @@ def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search
 		params = tuple(params_list)		
 		dprint("params: " + str(params))
 		if my_content_type is not None:
-			headers = { 'content-type': str(my_content_type) }
+			headers = { 'Accept': str(my_content_type) }
 
 		while error_count < RETRIES:
 			dprint("loop: " + str(error_count))
@@ -103,6 +103,7 @@ def main():
 		for page in range(0, page_total):			
 			index = page * BATCH_SIZE_DEFAULT
 			response = apiCall(URI_BASE + '/search', BATCH_SIZE_DEFAULT, index, search).json()
+			dprint("Item: " + str(page) + " of total: " + str(page_total))
 			dprint(response)
 			if page == 0: total = total if total < response['total_results'] else response['total_results']				
 			companies = response['items']	
@@ -133,8 +134,8 @@ def main():
 										# then send an accept content-type to the /context for the different types
 										document_name = company['company_number'] + '_' + document_metadata['category'] + '_' + document_date + '.' + document_extension
 										dprint("document name : " + str(document_name))
-										#document_content = apiCall(document['links']['document_metadata']+'/content', None, None, None, content_type)
-										document_content = apiCall(document['links']['document_metadata']+'/content')
+										document_content = apiCall(document['links']['document_metadata']+'/content', None, None, None, content_type)
+										#document_content = apiCall(document['links']['document_metadata']+'/content')
 										dprint(document_content)
 										#dprint(document_content.content)
 										f = open('cache/' + document_name, "w")
