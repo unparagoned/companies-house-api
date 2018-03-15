@@ -13,21 +13,16 @@ DEBUG = True
 URI_BASE = 'https://api.companieshouse.gov.uk'
 TOKEN = AUTH_TOKEN
 RETRIES = 2
-# should index be 0?
-index = 1
 BATCH_SIZE_DEFAULT = 10 
 TOTAL_COMPANIES_DEFAULT = 40
 SEARCH_DEFAULT = 'dog'
 DOCUMENTS_DEFAULT = 5
-
-array = "" 
 
 
 def dprint(my_print_statement):
 	if DEBUG:
 		print(my_print_statement)
 		
-
 def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search_term = None):
 	"""
 	This calls the companies house api
@@ -50,14 +45,12 @@ def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search
 			dprint("loop: " + str(error_count))
 			response = requests.get(my_uri, params=params, auth=(TOKEN, ''))
 			dprint("got response ")
-			#print response.json()
 			# Use 4 to find error responses 400, 404, etc.
 			if "4" in response:
 				print("Error waiting 5 min before retry")
 				time.sleep( 5 * 60 + 1 )
 				error_count += 1
 			else:
-				#good response
 				dprint("Good response:")
 				return response
 		
@@ -96,6 +89,7 @@ def main():
 	
 	try:
 		dprint("Arguments Total: " + str(total) + " search: " + str(search))
+		# taking negative of the negative rounded down gives rounded up value. // rounds down
 		page_total = -(-total // BATCH_SIZE_DEFAULT)	
 		for page in range(0, page_total):			
 			index = page * BATCH_SIZE_DEFAULT
@@ -110,32 +104,19 @@ def main():
 				filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, 0).json()
 				filing_pages = - (- filing_history['total_count'] // filing_history['items_per_page'] )
 				for filing_page in range(0, filing_pages):
-
-					print filing_history
+					dprint(filing_history)
 					company_files = [company, filing_history]
-					# taking negative of the negative rounded down gives rounded up value. // rounds down
-
-					# round down due to 0 index
-					#filing_pages =  filing_history['total_count'] // filing_history['items_per_page'] 
 					for document_index, document in enumerate(filing_history['items']):
 						if ( document_index + filing_history['start_index'] ) < documents_total:
 							if 'document_metadata' in document['links']:
-								#print document['links']['document_metadata']
 								document_content = requests.get(document['links']['document_metadata']+'/content', auth=(TOKEN,''))
-								#print document_content.text
-								#company_files.append(document_content)
-								#company_files.append(document_content.content)
 								f = open('cache/' + company['company_number'] + '_' + document['transaction_id'], "w")
 								f.write(document_content.content)
 								f.close()
-
+					
 					filing_index = filing_page * BATCH_SIZE_DEFAULT
 					filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
 					full_details.append(company_files)							
-					
-
-
-		#print array
 
 		file = open("cache/dogs.txt", "w")
 		file.write(full_details)
@@ -145,12 +126,8 @@ def main():
 		dprint("Error: " + response )
 		pass
 	finally:
-		return 1
+		return 0
 
 print("starting")
 if __name__ == '__main__':
 	main()
-
-
-	
-
