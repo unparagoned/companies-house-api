@@ -17,13 +17,18 @@ BATCH_SIZE_DEFAULT = 100
 TOTAL_COMPANIES_DEFAULT = 40
 SEARCH_DEFAULT = 'dog'
 DOCUMENTS_DEFAULT = 5
-
+content_types = [ 	'application/pdf', 
+					'application/json',
+					'application/xml',
+					'application/xhtml+xml',
+					'text/csv'
+				]
 
 def dprint(my_print_statement):
 	if DEBUG:
 		print(my_print_statement)
 		
-def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search_term = None):
+def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search_term = None, my_content_type = None):
 	"""
 	This calls the companies house api
 	It retries up to "RETRIES" times if there is an error.
@@ -31,6 +36,7 @@ def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search
 	dprint("---> Starting apiCall: " + my_uri)
 	error_count = 0
 	try:
+		headers = {}
 		params_list = []
 		if my_search_term is not None:
 			params_list.append( ('q', my_search_term) )
@@ -40,10 +46,13 @@ def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search
 			params_list.append( ('items_per_page', my_number_of_items) )
 		params = tuple(params_list)		
 		dprint("params: " + str(params))
+		if my_content_type is not None:
+			headers = { 'content-type': str(my_content_type) }
 
 		while error_count < RETRIES:
 			dprint("loop: " + str(error_count))
-			response = requests.get(my_uri, params=params, auth=(TOKEN, ''))
+			dprint("headers: " + str(headers))
+			response = requests.get(my_uri, params=params, headers = headers, auth=(TOKEN, ''))
 			dprint("got response ")
 			# Use 4 to find error responses 400, 404, etc.
 			if "4" in response:
@@ -109,10 +118,28 @@ def main():
 					for document_index, document in enumerate(filing_history['items']):
 						if ( document_index + filing_history['start_index'] ) < documents_total:
 							if 'document_metadata' in document['links']:
-								document_content = requests.get(document['links']['document_metadata']+'/content', auth=(TOKEN,''))
-								f = open('cache/' + company['company_number'] + '_' + document['transaction_id'], "w")
-								f.write(document_content.content)
-								f.close()
+								document_metadata = apiCall(document['links']['document_metadata']).json()
+								dprint(document_metadata)
+								if 'resources' in document_metadata:
+									dprint("resources are :" + str(document_metadata['resources']))
+									for content_type in document_metadata['resources']:
+										dprint("content: " + str(content_type))
+										document_extension = re.match(r'.*/([a-z]*).*', str(content_type)).group(1)
+										date_source = document_metadata['significant_date'] if document_metadata['significant_date'] is not None else document_metadata['created_at']
+										document_date = re.match(r'([0-9\-]+)[^0-9\-]+.*', str(date_source)).group(1)
+										dprint(" Date sig: " + str(document_metadata['significant_date']) + " created : " + str(document_metadata['created_at']) + " source: " + date_source + "doc dateL " + document_date)
+										# get metadata if resources in 
+										# if application/pdf or application/xhtml+xml in,
+										# then send an accept content-type to the /context for the different types
+										document_name = company['company_number'] + '_' + document_metadata['category'] + '_' + document_date + '.' + document_extension
+										dprint("document name : " + str(document_name))
+										#document_content = apiCall(document['links']['document_metadata']+'/content', None, None, None, content_type)
+										document_content = apiCall(document['links']['document_metadata']+'/content')
+										dprint(document_content)
+										#dprint(document_content.content)
+										f = open('cache/' + document_name, "w")
+										f.write(document_content.content)
+										f.close()
 					
 					filing_index = filing_page * BATCH_SIZE_DEFAULT
 					filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
