@@ -21,33 +21,31 @@ SEARCH_DEFAULT = 'dog'
 DOCUMENTS_DEFAULT = 5
 
 array = "" 
-full_details = []
+
 
 def dprint(my_print_statement):
 	if DEBUG:
 		print(my_print_statement)
 		
 
-def apiCall(my_uri, my_search_term = None, my_number_of_items = None, my_index_offset = None):
+def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search_term = None):
 	"""
 	This calls the companies house api
 	It retries up to "RETRIES" times if there is an error.
 	"""
-	dprint("--Starting apiCall: " + my_uri)
+	dprint("---> Starting apiCall: " + my_uri)
 	error_count = 0
 	try:
-		if (my_search_term is not None) and (my_index_offset is not None) and (my_number_of_items is not None):
-			dprint("Parameters provided")
-			params = (
-				('q', my_search_term),
-				('items_per_page', my_number_of_items),
-				('start_index', my_index_offset)
-			)
-			dprint("params: " + params[0][1])
-		else:
-			params = None
+		params_list = []
+		if my_search_term is not None:
+			params_list.append( ('q', my_search_term) )
+		if my_index_offset is not None:
+			params_list.append( ('start_index', my_index_offset) )
+		if my_number_of_items is not None:
+			params_list.append( ('items_per_page', my_number_of_items) )
+		params = tuple(params_list)		
+		dprint("params: " + str(params))
 
-		dprint("pre loop" + str(error_count))
 		while error_count < RETRIES:
 			dprint("loop: " + str(error_count))
 			response = requests.get(my_uri, params=params, auth=(TOKEN, ''))
@@ -74,11 +72,13 @@ def main():
 
 	"""
 	dprint("---> Starting main")
+	full_details = []
 	args = ''.join(sys.argv)
 	dprint("ARGS: " + args)
-	
-	documents_total	= int(re.match(r'.*\-d([^\- ]*).*', args).group(1))
-	
+	try:	
+		documents_total	= int(re.match(r'.*\-d([^\- ]*).*', args).group(1))
+	except:
+		documents_total = DOCUMENTS_DEFAULT
 	dprint("docuents per entity: " + str(documents_total))
 	
 	try:
@@ -96,28 +96,42 @@ def main():
 	
 	try:
 		dprint("Arguments Total: " + str(total) + " search: " + str(search))
-		page_total = total / BATCH_SIZE_DEFAULT	
+		page_total = -(-total // BATCH_SIZE_DEFAULT)	
 		for page in range(0, page_total):			
 			index = page * BATCH_SIZE_DEFAULT
-			response = apiCall(URI_BASE + '/search', search, BATCH_SIZE_DEFAULT, index).json()
+			response = apiCall(URI_BASE + '/search', BATCH_SIZE_DEFAULT, index, search).json()
+			dprint(response)
 			if page == 0: total = total if total < response['total_results'] else response['total_results']				
 			companies = response['items']	
 			for company in companies:
 				print company['company_number']
-				filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history').json()
-				print filing_history
-				company_files =[company, filing_history]
-				for document in filing_history['items']:
-					#print document['links']['document_metadata']
-					document_content = requests.get(document['links']['document_metadata']+'/content', auth=(TOKEN,''))
-					#print document_content.text
-					company_files.append(document_content)
-					company_files.append(document_content.content)
-					f = open('cache/' + company['company_number'] + '_' + document['transaction_id'], "w")
-					f.write(document_content.content)
-				f.close()
+				filing_index = 0
+				filing_pages = 1
+				filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, 0).json()
+				filing_pages = - (- filing_history['total_count'] // filing_history['items_per_page'] )
+				for filing_page in range(0, filing_pages):
 
-				full_details.append(company_files)							
+					print filing_history
+					company_files = [company, filing_history]
+					# taking negative of the negative rounded down gives rounded up value. // rounds down
+
+					# round down due to 0 index
+					#filing_pages =  filing_history['total_count'] // filing_history['items_per_page'] 
+					for document_index, document in enumerate(filing_history['items']):
+						if ( document_index + filing_history['start_index'] ) < documents_total:
+							if 'document_metadata' in document['links']:
+								#print document['links']['document_metadata']
+								document_content = requests.get(document['links']['document_metadata']+'/content', auth=(TOKEN,''))
+								#print document_content.text
+								#company_files.append(document_content)
+								#company_files.append(document_content.content)
+								f = open('cache/' + company['company_number'] + '_' + document['transaction_id'], "w")
+								f.write(document_content.content)
+								f.close()
+
+					filing_index = filing_page * BATCH_SIZE_DEFAULT
+					filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
+					full_details.append(company_files)							
 					
 
 
