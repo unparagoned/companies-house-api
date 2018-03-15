@@ -107,8 +107,12 @@ def main():
 			dprint(response)
 			if page == 0: total = total if total < response['total_results'] else response['total_results']				
 			companies = response['items']	
-			for company in companies:
-				print company['company_number']
+			dprint(companies)
+			for company in companies:				
+				dprint(company)
+				#search results are across companies, persons, etc. So break if result is not the kind company.
+				if 'company' not in company['kind']: break
+				dprint("COMPANY" + str(company['company_number']))
 				filing_index = 0
 				filing_pages = 1
 				filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, 0).json()
@@ -116,6 +120,9 @@ def main():
 				for filing_page in range(0, filing_pages):
 					dprint(filing_history)
 					company_files = [company, filing_history]
+					filing_index = filing_page * BATCH_SIZE_DEFAULT
+					filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
+					full_details.append(company_files)	
 					for document_index, document in enumerate(filing_history['items']):
 						if ( document_index + filing_history['start_index'] ) < documents_total:
 							if 'document_metadata' in document['links']:
@@ -142,9 +149,7 @@ def main():
 										f.write(document_content.content)
 										f.close()
 					
-					filing_index = filing_page * BATCH_SIZE_DEFAULT
-					filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
-					full_details.append(company_files)							
+											
 
 		file = open("cache/dogs.txt", "w")
 		file.write(full_details)
