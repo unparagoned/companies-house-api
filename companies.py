@@ -24,9 +24,13 @@ content_types = [ 	'application/pdf',
 					'text/csv'
 				]
 
-def dprint(my_print_statement):
+summary_lists = []
+def xstr(s):
+	return '' if s is None else str(s)
+
+def dprint(my_print_statement, my_print_object = None):
 	if DEBUG:
-		print(str(my_print_statement))
+		print str(my_print_statement) + xstr(my_print_object)
 		
 def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search_term = None, my_content_type = None):
 	"""
@@ -50,17 +54,20 @@ def apiCall(my_uri, my_number_of_items = None, my_index_offset = None, my_search
 			headers = { 'Accept': str(my_content_type) }
 
 		while error_count < RETRIES:
-			dprint("loop: " + str(error_count))
+			if error_count > 0:  dprint("Retries : " + str(error_count))
 			dprint("headers: " + str(headers))
 			response = requests.get(my_uri, params=params, headers = headers, auth=(TOKEN, ''))
-			dprint("got response ")
-			# Use 4 to find error responses 400, 404, etc.
-			if "4" in response:
+			dprint("got response ", response)
+			# Use 4 toos=ko find error responses 400, 404, etc.
+			if response.status_code == 429:
 				print("Error waiting 5 min before retry")
 				time.sleep( 5 * 60 + 1 )
 				error_count += 1
-			else:
+			elif response.status_code == 200:
 				dprint("Good response:")
+				return response
+			else:
+				dprint("--- Unknown status code", response.status_code)
 				return response
 		
 		print("Error:", response)
@@ -84,10 +91,11 @@ def main():
 	dprint("docuents per entity: " + str(documents_total))
 	
 	try:
-		total = int(re.match(r'.*\-n([^\- ]*).*', args).group(1))
+		companies_total = int(re.match(r'.*\-c([^\- ]*).*', args).group(1))
 		dprint("total: " + str(total) )
 	except:
-		total = TOTAL_COMPANIES_DEFAULT
+	        companies_total = TOTAL_COMPANIES_DEFAULT	
+                total = TOTAL_COMPANIES_DEFAULT
 		pass
 	try:
 		search = re.match(r'.*\-s([^\- ]*).*', args).group(1)
@@ -99,32 +107,35 @@ def main():
 	try:
 		dprint("Arguments Total: " + str(total) + " search: " + str(search))
 		# taking negative of the negative rounded down gives rounded up value. // rounds down
-		page_total = -(-total // BATCH_SIZE_DEFAULT)	
+		page_total = -(-companies_total // BATCH_SIZE_DEFAULT)	
 		for page in range(0, page_total):			
 			index = page * BATCH_SIZE_DEFAULT
 			response = apiCall(URI_BASE + '/search', BATCH_SIZE_DEFAULT, index, search).json()
 			dprint("Item: " + str(page) + " of total: " + str(page_total))
 			dprint(response)
 			if page == 0: total = total if total < response['total_results'] else response['total_results']				
-			companies = response['items']	
-			dprint(companies)
-			for company in companies:				
-				dprint(company)
+			search_results = response['items']	
+			#dprint(search_results)
+			for search_hit in search_results:				
+				#dprint(search_results)
 				#search results are across companies, persons, etc. So break if result is not the kind company.
-				if 'company' not in company['kind']: break
+				if 'company' not in search_hit['kind']: break
+				company = search_hit
 				dprint("COMPANY" + str(company['company_number']))
 				filing_index = 0
 				filing_pages = 1
-				filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, 0).json()
-				filing_pages = - (- filing_history['total_count'] // filing_history['items_per_page'] )
+				filing_history =  apiCall(URI_BASE + '/company/' + company['company_number'] + '/filing-history', BATCH_SIZE_DEFAULT, 0).json()
+				filing_pages = -(-filing_history['total_count'] // filing_history['items_per_page'])
 				for filing_page in range(0, filing_pages):
 					dprint(filing_history)
 					company_files = [company, filing_history]
 					filing_index = filing_page * BATCH_SIZE_DEFAULT
-					filing_history = apiCall(URI_BASE + '/company/'+company['company_number']+'/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
+					filing_history = apiCall(URI_BASE + '/company/' + company['company_number'] + '/filing-history', BATCH_SIZE_DEFAULT, filing_index).json()
 					full_details.append(company_files)	
 					for document_index, document in enumerate(filing_history['items']):
-						if ( document_index + filing_history['start_index'] ) < documents_total:
+						dprint("document index: " + str(document_index) + "filing index: " + str(filing_history['start_index']) + "total: " + str(documents_total))
+						if ( document_index + int(filing_history['start_index']) ) < documents_total:
+							dprint("SUM: " + str(document_index + int(filing_history['start_index'])))
 							if 'document_metadata' in document['links']:
 								document_metadata = apiCall(document['links']['document_metadata']).json()
 								dprint(document_metadata)
@@ -148,6 +159,7 @@ def main():
 										f = open('cache/' + document_name, "w")
 										f.write(document_content.content)
 										f.close()
+						else: break
 					
 											
 
@@ -156,7 +168,10 @@ def main():
 		file.close()
 
 	except:
-		dprint("Error: " + response )
+		dprint("---> Error (Main): ", sys.exc_info() ) 
+
+		print sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2] 
+		
 		pass
 	finally:
 		return 0
