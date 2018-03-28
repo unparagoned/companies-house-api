@@ -16,9 +16,11 @@ When setting up token you have to specify IP, but the token apears to work with 
 
 ## Useage
 
+The API is designed to help download documents for companies returned in a search. 
+For testing no arguments need to be supplied. For normal use use the following.
 ```
 
-python companies.py -s <search term> -n <number of companies> -d <number of documents per company>
+python companies.py -s <search term> -c <number of companies> -d <number of documents per company>
 
 ```
 
@@ -26,7 +28,7 @@ e.g.
 
 ```
 
-python companies.py -s dog -n 20 -d 5
+python companies.py -s dog -c 20 -d 5
 
 ```
 
