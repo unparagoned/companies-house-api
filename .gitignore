@@ -1,6 +1,6 @@
 passwords.py
 *~
-cache/
+#cache/
 .vscode
 *.pyc
 passwords*

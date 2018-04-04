@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:iso4217="http://www.xbrl.org/2003/iso4217" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:ixt="http://www.xbrl.org/inlineXBRL/transformation/2010-04-20" xmlns:ixt2="http://www.xbrl.org/inlineXBRL/transformation/2011-07-31" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:uk-bus="http://www.xbrl.org/uk/cd/business/2009-09-01" xmlns:uk-direp="http://www.xbrl.org/uk/reports/direp/2009-09-01" xmlns:uk-gaap="http://www.xbrl.org/uk/gaap/core/2009-09-01" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xlink="http://www.w3.org/1999/xlink" version="-//XBRL International//DTD XHTML Inline XBRL 1.1//EN">
+<head>
+<meta content="application/xhtml+xml; charset=UTF-8;" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>Dog Days Adventure Limited</title>
+<style type="text/css">
+@page { margin: 0; }
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .af-page {
+    max-height: 11.1in;
+    max-width: 8.2in;
+    page-break-after: always;
+  }
+  .af-break {
+    display: none;
+  }
+}
+@media screen { 
+html {
+background-color: #444;
+}
+body {
+margin: 10px auto;
+padding: 0;
+width: 8.267in;
+text-rendering: geometricPrecision;
+}
+a {
+  text-decoration: none;
+  color: #00d;  
+}
+a:visited {
+  color: #00d;
+}
+a:hover {
+  color: #00d;
+  text-decoration: underline;
+}
+.af-page {
+  background-color: #fff;
+  position:relative;
+  width:100%;
+}
+.af-break {
+  height: 20px;
+  page-break-after:always;
+}
+}
+* {
+  box-sizing: border-box;
+}
+.af-cell {
+  position: absolute;
+  display: inline-block;
+  white-space: pre-line;
+  top: 0;
+}
+.af-ol {
+  padding-top:0.05in;
+  border-top:1px solid #000;
+}
+.af-ul {
+  border-bottom:1px solid #000;
+}
+.af-dul {
+  border-bottom:3px double #000;
+}
+.af-Normal { font: 9pt/130% Helvetica; } 
+.af-Heading { font: bold 10pt/130% Helvetica; } 
+.af-Title { font: bold 12pt/130% Helvetica;text-transform:uppercase; } 
+.af-PolicyHeading { font: bold italic 10pt/130% Helvetica; } </style>
+</head>
+<body xml:lang="en">
+<div style="display:none">
+<ix:header>
+<ix:hidden>
+<ix:tuple name="uk-bus:XBRLDocumentAuthorGrouping" tupleID="XBRLDocumentAuthorGrouping1"/>
+<ix:nonNumeric contextRef="company-BFwd-instant" format="ixt:datelonguk" name="uk-bus:StartDateForPeriodCoveredByReport">1 July 2015</ix:nonNumeric>
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:EntityTrading">true</ix:nonNumeric>
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:EntityDormant">false</ix:nonNumeric>
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:NameAuthor" order="1" tupleRef="XBRLDocumentAuthorGrouping1"/>
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:DescriptionOrTitleAuthor" order="2" tupleRef="XBRLDocumentAuthorGrouping1"/>
+
+</ix:hidden>
+<ix:references>
+<link:schemaRef xlink:href="http://www.xbrl.org/uk/gaap/core/2009-09-01/uk-gaap-full-2009-09-01.xsd" xlink:type="simple"/>
+</ix:references>
+<ix:resources>
+<xbrli:context id="company-BFwd-instant">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2015-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-duration">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startDate>2015-07-01</xbrli:startDate>
+<xbrli:endDate>2016-06-30</xbrli:endDate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-instant">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2016-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Comparative-instant">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2015-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-duration-x-0">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitMember dimension="uk-bus:EntityOfficersDimension">uk-bus:Director2</xbrldi:explicitMember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startDate>2015-07-01</xbrli:startDate>
+<xbrli:endDate>2016-06-30</xbrli:endDate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-duration-x-1">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:LandBuildings</xbrldi:explicitMember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startDate>2015-07-01</xbrli:startDate>
+<xbrli:endDate>2016-06-30</xbrli:endDate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-duration-x-2">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitMember dimension="uk-gaap:TangibleFixedAssetClassesDimension">uk-gaap:MotorVehicles</xbrldi:explicitMember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startDate>2015-07-01</xbrli:startDate>
+<xbrli:endDate>2016-06-30</xbrli:endDate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-instant-x-3">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitMember dimension="uk-bus:ShareClassesDimension">uk-bus:OrdinaryShareClass1</xbrldi:explicitMember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2016-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Current-duration-x-3">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitMember dimension="uk-bus:ShareClassesDimension">uk-bus:OrdinaryShareClass1</xbrldi:explicitMember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:startDate>2015-07-01</xbrli:startDate>
+<xbrli:endDate>2016-06-30</xbrli:endDate>
+</xbrli:period>
+</xbrli:context>
+<xbrli:context id="company-Comparative-instant-x-3">
+<xbrli:entity>
+<xbrli:identifier scheme="http://www.companieshouse.gov.uk/">08116225</xbrli:identifier>
+<xbrli:segment>
+<xbrldi:explicitMember dimension="uk-bus:ShareClassesDimension">uk-bus:OrdinaryShareClass1</xbrldi:explicitMember>
+</xbrli:segment>
+</xbrli:entity>
+<xbrli:period>
+<xbrli:instant>2015-06-30</xbrli:instant>
+</xbrli:period>
+</xbrli:context>
+<xbrli:unit id="GBP">
+<xbrli:measure>iso4217:GBP</xbrli:measure>
+</xbrli:unit>
+<xbrli:unit id="Shares">
+<xbrli:measure>xbrli:shares</xbrli:measure>
+</xbrli:unit>
+</ix:resources>
+</ix:header>
+</div>
+<div class="af-body">
+<div class="af-page af-Normal" style="width:8.267in;height:11.692in;padding-top:0.5in;">
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 7.267in;height: 0.18055555555556in;text-align:right;">Company Registration No. <ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:UKCompaniesHouseRegisteredNumber">08116225</ix:nonNumeric> (England and Wales)</div>
+</div>
+<div style="position:relative;height:4.65in;">
+<div class="af-cell af-Title" style="left: 0.5in;width: 7.267in;height: 0.65in;top:4in;text-align:center;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:EntityCurrentLegalOrRegisteredName">Dog Days Adventure Limited</ix:nonNumeric>
+Abbreviated unaudited accounts
+for the year ended <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+</div>
+</div>
+<div class="af-break"/>
+<div class="af-page af-Normal" style="width:8.267in;height:11.692in;padding-top:0.5in;">
+<a id="Balance-sheet"/>
+<div style="position:relative;height:0.65in;">
+<div class="af-cell af-Title" style="left: 0.5in;width: 7.267in;height: 0.65in;text-align:center;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:EntityCurrentLegalOrRegisteredName">Dog Days Adventure Limited</ix:nonNumeric>
+Abbreviated Balance Sheet
+as at <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">
+<ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:BalanceSheetDate">30 June 2016</ix:nonNumeric>
+</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.5625in;">
+<div class="af-cell af-Normal af-ol" style="left: 0.5in;width: 7.267in;height: 0.2125in;top:0.15in;bottom: 0.2in;"/>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 6.067in;width: 0.8in;height: 0.18055555555556in;text-align:right;">2016 </div>
+<div class="af-cell af-Heading" style="left: 6.967in;width: 0.8in;height: 0.18055555555556in;text-align:right;">2015 </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 5.167in;width: 0.8in;height: 0.18055555555556in;text-align:right;">Notes</div>
+<div class="af-cell af-Heading" style="left: 6.067in;width: 0.8in;height: 0.18055555555556in;text-align:right;">£ </div>
+<div class="af-cell af-Heading" style="left: 6.967in;width: 0.8in;height: 0.18055555555556in;text-align:right;">£ </div>
+</div>
+<div style="position:relative;height:0.1in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;">Fixed assets</div>
+</div>
+<div style="position:relative;height:0.05in;"/>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 4.567in;height: 0.1625in;">Intangible assets</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;">
+<a href="#note-2">2</a>
+</div>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssets" unitRef="GBP">1</ix:nonFraction> </div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssets" unitRef="GBP">1,305</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 4.567in;height: 0.1625in;">Tangible assets</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;">
+<a href="#note-3">3</a>
+</div>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssets" unitRef="GBP">25,388</ix:nonFraction> </div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssets" unitRef="GBP">24,977</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal af-ol" style="left: 6.067in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:FixedAssets" unitRef="GBP">25,389</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-ol" style="left: 6.967in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:FixedAssets" unitRef="GBP">26,282</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;">Current assets</div>
+</div>
+<div style="position:relative;height:0.05in;"/>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 4.567in;height: 0.1625in;">Debtors</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;"/>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:Debtors" unitRef="GBP">17,120</ix:nonFraction> </div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:Debtors" unitRef="GBP">1,757</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 4.567in;height: 0.1625in;">Cash at bank and in hand</div>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CashBankInHand" unitRef="GBP">61,365</ix:nonFraction> </div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CashBankInHand" unitRef="GBP">31,216</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal af-ol" style="left: 6.067in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CurrentAssets" unitRef="GBP">78,485</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-ol" style="left: 6.967in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CurrentAssets" unitRef="GBP">32,973</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;">Creditors: amounts falling due within one year</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;"/>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">(<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CreditorsDueWithinOneYear" unitRef="GBP">52,734</ix:nonFraction>)</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">(<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CreditorsDueWithinOneYear" unitRef="GBP">36,199</ix:nonFraction>)</div>
+</div>
+<div style="position:relative;height:0.28055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;top:0.1in;">Net current assets/(liabilities)</div>
+<div class="af-cell af-Normal af-ol" style="left: 6.067in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:NetCurrentAssetsLiabilities" unitRef="GBP">25,751</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-ol" style="left: 6.967in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">(<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:NetCurrentAssetsLiabilities" sign="-" unitRef="GBP">3,226</ix:nonFraction>)</div>
+</div>
+<div style="position:relative;height:0.28055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;top:0.1in;">Total assets less current liabilities</div>
+<div class="af-cell af-Normal af-ol" style="left: 6.067in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TotalAssetsLessCurrentLiabilities" unitRef="GBP">51,140</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-ol" style="left: 6.967in;width: 0.8in;height: 0.2125in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TotalAssetsLessCurrentLiabilities" unitRef="GBP">23,056</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;">Creditors: amounts falling due after more than one year</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;"/>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">(<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CreditorsDueAfterOneYear" unitRef="GBP">4,921</ix:nonFraction>)</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">(<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CreditorsDueAfterOneYear" unitRef="GBP">4,412</ix:nonFraction>)</div>
+</div>
+<div style="position:relative;height:0.38055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;top:0.1in;">Net assets</div>
+<div class="af-cell af-Normal af-ol af-dul" style="left: 6.067in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:NetAssetsLiabilitiesIncludingPensionAssetLiability" unitRef="GBP">46,219</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-ol af-dul" style="left: 6.967in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:NetAssetsLiabilitiesIncludingPensionAssetLiability" unitRef="GBP">18,644</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;">Capital and reserves</div>
+</div>
+<div style="position:relative;height:0.05in;"/>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 4.567in;height: 0.1625in;">Called up share capital</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;">
+<a href="#note-4">4</a>
+</div>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CalledUpShareCapital" unitRef="GBP">2</ix:nonFraction> </div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:CalledUpShareCapital" unitRef="GBP">2</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 4.567in;height: 0.1625in;">Profit and loss account</div>
+<div class="af-cell af-Normal" style="left: 5.167in;width: 0.8in;height: 0.1625in;text-align:right;"/>
+<div class="af-cell af-Normal" style="left: 6.067in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:ProfitLossAccountReserve" unitRef="GBP">46,217</ix:nonFraction> </div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:ProfitLossAccountReserve" unitRef="GBP">18,642</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.38055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 4.567in;height: 0.18055555555556in;top:0.1in;">Total shareholders' funds</div>
+<div class="af-cell af-Normal af-ol af-dul" style="left: 6.067in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:ShareholderFunds" unitRef="GBP">46,219</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-ol af-dul" style="left: 6.967in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:ShareholderFunds" unitRef="GBP">18,644</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.4875in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 7.267in;height: 0.4875in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-gaap:CompanyEntitledToExemptionUnderSection477CompaniesAct2006">For the year ending <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric> the company was entitled to exemption from audit under section 477 of the Companies Act 2006 relating to small companies.</ix:nonNumeric> <ix:nonNumeric contextRef="company-Current-duration" name="uk-gaap:MembersHaveNotRequiredCompanyToObtainAnAudit">The members have not required the company to obtain an audit in accordance with section 476 of the Companies Act 2006. </ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.325in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 7.267in;height: 0.325in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-direp:DirectorsAcknowledgeTheirResponsibilitiesUnderCompaniesAct">The directors acknowledge their responsibilities for complying with the requirements of the Act with respect to accounting records and the preparation of accounts.</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.325in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 7.267in;height: 0.325in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-direp:AccountsAreInAccordanceWithSpecialProvisionsCompaniesActRelatingToSmallCompanies">These accounts have been prepared in accordance with the provisions applicable to companies subject to the small companies' regime and in accordance with the Financial Reporting Standard for Smaller Entities (effective January 2015).</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 7.267in;height: 0.1625in;">Approved by the board on <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-gaap:DateApprovalAccounts">31 March 2017</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.4in;"/>
+<div style="position:relative;height:0.65in;">
+<div class="af-cell af-Normal" style="left: 0.5in;width: 7.267in;height: 0.65in;">
+<ix:nonNumeric contextRef="company-Current-duration-x-0" name="uk-bus:NameEntityOfficer">L.Owen</ix:nonNumeric>
+<ix:nonNumeric contextRef="company-Current-duration-x-0" name="uk-gaap:NameDirectorSigningAccounts"/>
+Director
+
+Company Registration No. <ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:UKCompaniesHouseRegisteredNumber">08116225</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:1.3308888888889in;">
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal af-ol" style="left: 0.5in;width: 7.267in;height: 0.2125in;top:0.05in;text-align:center;">- 2 -</div>
+</div>
+</div>
+<div class="af-break"/>
+<div class="af-page af-Normal" style="width:8.267in;height:11.692in;padding-top:0.5in;">
+<a id="Notes"/>
+<div style="position:relative;height:0.65in;">
+<div class="af-cell af-Title" style="left: 0.5in;width: 7.267in;height: 0.65in;text-align:center;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:EntityCurrentLegalOrRegisteredName">Dog Days Adventure Limited</ix:nonNumeric>
+Notes to the Abbreviated Accounts
+for the year ended <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.5625in;">
+<div class="af-cell af-Normal af-ol" style="left: 0.5in;width: 7.267in;height: 0.2125in;top:0.15in;bottom: 0.2in;"/>
+</div>
+<a id="note-1"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 0.1in;height: 0.18055555555556in;">1</div>
+<div class="af-cell af-Heading" style="left: 0.7in;width: 7.067in;height: 0.18055555555556in;">Accounting policies</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-PolicyHeading" style="left: 0.7in;width: 7.067in;height: 0.18055555555556in;">Basis of preparation</div>
+</div>
+<div style="position:relative;height:0.325in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 7.067in;height: 0.325in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-gaap:StatementOnBasisMeasurementPreparationAccounts">The accounts have been prepared under the historical cost convention and in accordance with the Financial Reporting Standard for Smaller Entities (effective January 2015).</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-PolicyHeading" style="left: 0.7in;width: 7.067in;height: 0.18055555555556in;">Turnover</div>
+</div>
+<div style="position:relative;height:0.325in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 7.067in;height: 0.325in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-gaap:TurnoverPolicy">Turnover represents the value, net of VAT and discounts, of goods provided to customers and work carried out in respect of services provided to customers.</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-PolicyHeading" style="left: 0.7in;width: 7.067in;height: 0.18055555555556in;">Tangible fixed assets policy</div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 7.067in;height: 0.1625in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-gaap:TangibleFixedAssetsPolicy">Depreciation has been provided at the following rates in order to write off the assets over their estimated useful lives:</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.8in;width: 2in;height: 0.1625in;">Land &amp; buildings</div>
+<div class="af-cell af-Normal" style="left: 2.9in;width: 4.867in;height: 0.1625in;">
+<ix:nonNumeric contextRef="company-Current-duration-x-1" name="uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets">20% Straight Line</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.8in;width: 2in;height: 0.1625in;">Motor vehicles</div>
+<div class="af-cell af-Normal" style="left: 2.9in;width: 4.867in;height: 0.1625in;">
+<ix:nonNumeric contextRef="company-Current-duration-x-2" name="uk-gaap:DescriptionDepreciationMethodRateOrUsefulEconomicLifeForTangibleFixedAssets">25% Straight Line</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-PolicyHeading" style="left: 0.7in;width: 7.067in;height: 0.18055555555556in;">Intangible fixed assets</div>
+</div>
+<div style="position:relative;height:0.4875in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 7.067in;height: 0.4875in;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-gaap:DescriptionGoodwillIntangibleAssetAmortisationMethodPeriods">Intangible fixed assets (including purchased goodwill and patents) are amortised at rates calculated to write off the assets on a straight basis over their estimated useful economic lives. Impairment of intangible fixed assets is only reviewed where circumstances indicate that the carrying value of an asset may not be fully recoverable.</ix:nonNumeric>
+</div>
+</div>
+<a id="note-2"/>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 0.1in;height: 0.18055555555556in;">2</div>
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Intangible fixed assets</div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 6.967in;width: 0.8in;height: 0.18055555555556in;text-align:right;">£ </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Cost</div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At 1 July 2015</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-BFwd-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssetsCostOrValuation" unitRef="GBP">5,217</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.3625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;top:0.1in;">At <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+<div class="af-cell af-Normal af-ol af-ul" style="left: 6.967in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssetsCostOrValuation" unitRef="GBP">5,217</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Amortisation</div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At 1 July 2015</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-BFwd-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssetsAggregateAmortisationImpairment" unitRef="GBP">3,912</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">Charge for the year</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-duration" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssetsAmortisationChargedInPeriod" unitRef="GBP">1,304</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.3625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;top:0.1in;">At <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+<div class="af-cell af-Normal af-ol af-dul" style="left: 6.967in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssetsAggregateAmortisationImpairment" unitRef="GBP">5,216</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Net book value</div>
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+<div class="af-cell af-Normal af-dul" style="left: 6.967in;width: 0.8in;height: 0.2425in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssets" unitRef="GBP">1</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At 30 June 2015</div>
+<div class="af-cell af-Normal af-dul" style="left: 6.967in;width: 0.8in;height: 0.2425in;text-align:right;">
+<ix:nonFraction contextRef="company-BFwd-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:IntangibleFixedAssets" unitRef="GBP">1,305</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:2.6489444444444in;">
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal af-ol" style="left: 0.5in;width: 7.267in;height: 0.2125in;top:0.05in;text-align:center;">- 3 -</div>
+</div>
+</div>
+<div class="af-break"/>
+<div class="af-page af-Normal" style="width:8.267in;height:11.692in;padding-top:0.5in;">
+<div style="position:relative;height:0.65in;">
+<div class="af-cell af-Title" style="left: 0.5in;width: 7.267in;height: 0.65in;text-align:center;">
+<ix:nonNumeric contextRef="company-Current-duration" name="uk-bus:EntityCurrentLegalOrRegisteredName">Dog Days Adventure Limited</ix:nonNumeric>
+Notes to the Abbreviated Accounts
+for the year ended <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+</div>
+<div style="position:relative;height:0.5625in;">
+<div class="af-cell af-Normal af-ol" style="left: 0.5in;width: 7.267in;height: 0.2125in;top:0.15in;bottom: 0.2in;"/>
+</div>
+<a id="note-3"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 0.1in;height: 0.18055555555556in;">3</div>
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Tangible fixed assets</div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 6.967in;width: 0.8in;height: 0.18055555555556in;text-align:right;">£ </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Cost</div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At 1 July 2015</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-BFwd-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssetsCostOrValuation" unitRef="GBP">37,090</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">Additions</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-duration" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssetsAdditions" unitRef="GBP">11,177</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.3625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;top:0.1in;">At <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+<div class="af-cell af-Normal af-ol af-ul" style="left: 6.967in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssetsCostOrValuation" unitRef="GBP">48,267</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Depreciation</div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At 1 July 2015</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-BFwd-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssetsDepreciation" unitRef="GBP">12,113</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">Charge for the year</div>
+<div class="af-cell af-Normal" style="left: 6.967in;width: 0.8in;height: 0.1625in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-duration" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssetsDepreciationChargedInPeriod" unitRef="GBP">10,766</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.3625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;top:0.1in;">At <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+<div class="af-cell af-Normal af-ol af-dul" style="left: 6.967in;width: 0.8in;height: 0.2925in;top:0.05in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssetsDepreciation" unitRef="GBP">22,879</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.7in;width: 6.167in;height: 0.18055555555556in;">Net book value</div>
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At <ix:nonNumeric contextRef="company-Current-instant" format="ixt:datelonguk" name="uk-bus:EndDateForPeriodCoveredByReport">30 June 2016</ix:nonNumeric>
+</div>
+<div class="af-cell af-Normal af-dul" style="left: 6.967in;width: 0.8in;height: 0.2425in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssets" unitRef="GBP">25,388</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 6.167in;height: 0.1625in;">At 30 June 2015</div>
+<div class="af-cell af-Normal af-dul" style="left: 6.967in;width: 0.8in;height: 0.2425in;text-align:right;">
+<ix:nonFraction contextRef="company-BFwd-instant" decimals="0" format="ixt:numcommadot" name="uk-gaap:TangibleFixedAssets" unitRef="GBP">24,977</ix:nonFraction> </div>
+</div>
+<a id="note-4"/>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 0.5in;width: 0.1in;height: 0.18055555555556in;">4</div>
+<div class="af-cell af-Heading" style="left: 0.7in;width: 5.267in;height: 0.18055555555556in;">Share capital</div>
+<div class="af-cell af-Heading" style="left: 6.067in;width: 0.8in;height: 0.18055555555556in;text-align:right;">2016 </div>
+<div class="af-cell af-Heading" style="left: 6.967in;width: 0.8in;height: 0.18055555555556in;text-align:right;">2015 </div>
+</div>
+<div style="position:relative;height:0.18055555555556in;">
+<div class="af-cell af-Heading" style="left: 6.067in;width: 0.8in;height: 0.18055555555556in;text-align:right;">£ </div>
+<div class="af-cell af-Heading" style="left: 6.967in;width: 0.8in;height: 0.18055555555556in;text-align:right;">£ </div>
+</div>
+<div style="position:relative;height:0.1625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 5.267in;height: 0.1625in;">Allotted, called up and fully paid:</div>
+</div>
+<a id="End-of-notes"/>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal" style="left: 0.7in;width: 5.267in;height: 0.1625in;">
+<ix:nonFraction contextRef="company-Current-instant-x-3" decimals="0" format="ixt:numcommadot" name="uk-gaap:NumberSharesAllotted" unitRef="Shares">2</ix:nonFraction> <ix:nonNumeric contextRef="company-Current-duration-x-3" name="uk-bus:DescriptionShareType">Ordinary shares</ix:nonNumeric> of £<ix:nonFraction contextRef="company-Current-duration-x-3" decimals="0" format="ixt:numcommadot" name="uk-gaap:ParValueShare" unitRef="GBP">1</ix:nonFraction> each</div>
+<div class="af-cell af-Normal af-dul" style="left: 6.067in;width: 0.8in;height: 0.2425in;text-align:right;">
+<ix:nonFraction contextRef="company-Current-instant-x-3" decimals="0" format="ixt:numcommadot" name="uk-gaap:ShareCapitalAllottedCalledUpPaid" unitRef="GBP">2</ix:nonFraction> </div>
+<div class="af-cell af-Normal af-dul" style="left: 6.967in;width: 0.8in;height: 0.2425in;text-align:right;">
+<ix:nonFraction contextRef="company-Comparative-instant-x-3" decimals="0" format="ixt:numcommadot" name="uk-gaap:ShareCapitalAllottedCalledUpPaid" unitRef="GBP">2</ix:nonFraction> </div>
+</div>
+<div style="position:relative;height:0.2in;"/>
+<div style="position:relative;height:5.2281111111111in;">
+</div>
+<div style="position:relative;height:0.2625in;">
+<div class="af-cell af-Normal af-ol" style="left: 0.5in;width: 7.267in;height: 0.2125in;top:0.05in;text-align:center;">- 4 -</div>
+</div>
+</div>
+</div>
+</body>
+</html>

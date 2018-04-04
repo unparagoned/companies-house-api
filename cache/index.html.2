@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Check your IP address | MyIP.com</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="/js/bowser.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ff0000">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<div class="container-fluid principal">
+<div class="sidebar">
+<a href="/"><img class="logo" alt="myip" src="/img/myip.png"></a>
+<div class="json"><a href="/api-docs/"><img alt="json" src="/img/widgets.png">JSON API</a></div>
+<div class="boton">
+<button type="button" class="btn" data-toggle="modal" data-target="#myModal">Contact</button>
+</div>
+</div>
+<div class="container-fluid contenido">
+<div class="ads_1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4185349146732778" data-ad-slot="9671241353" data-ad-format="auto"></ins>
+<script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+</div>
+<div class="row display-flex">
+<div class="col-xs-12 col-lg-8">
+<div class="panel panel-default mi_panel">
+<div class="panel-body datos">
+<ul class="list-group">
+<li class="list-group-item">
+<div class="encabezado">Your IP address is:</div>
+<div class="texto_1">
+<img class="icono" alt="ip" src="/img/globe_network.png"><span id="ip">18.188.19.188</span>
+<button type="button" class="btn-info" data-toggle="tooltip" title="Copy IP to clipboard" id="copiar">copy</button>
+</div>
+</li>
+<li class="list-group-item">
+<div class="encabezado">Host:</div>
+<div class="texto_1"><img class="icono" alt="host" src="/img/terminal.png">ec2-18-188-19-188.us-east-2.compute.amazonaws.com</div>
+</li>
+<li class="list-group-item">
+<div class="encabezado">Remote Port:</div>
+<div class="texto_1"><img class="icono" alt="port" src="/img/connect.png">19937</div>
+</li>
+<li class="list-group-item">
+<div class="encabezado">ISP:</div>
+<div class="texto_1" id="ajax">
+<img class="icono" alt="isp" src="/img/building.png">
+<img id="load" src="/img/loading.gif"><script>
+                                            $(document).ready(function(){
+                                                $.ajax({
+                                                    url: "/isp/",
+                                                    success: function(result){
+                                                        var r;
+                                                        r = result === "" ? "Unknown" : result;
+                                                        $("#ajax").append(r);
+                                                        $("#load").remove();
+                                                    },
+                                                    error: function(){
+                                                        $("#ajax").append("Unknown");
+                                                        $("#load").remove();
+                                                    }
+                                                });
+                                            });
+                                            </script> </div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-lg-4">
+<div class="panel panel-default mi_panel">
+<div class="panel-body">
+<div class="info">
+<div class="info_1">Country: </div><div class="info_2">United States</div>
+</div>
+<div id="regions_div"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="panel panel-default bloque_1">
+<div class="panel-body">
+<img alt="web" src="/img/domain_names_advanced.png">
+The internet is a big network of connected devices, every device has a unique address where others can send information when they want to communicate.
+This unique identifier is your IP address and it is automatically assigned to you by your Internet Service Provider (ISP).
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4">
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="info">
+<div class="info_1">Your Browser: </div><div class="info_2"><script>document.write(bowser.name + ' ' + bowser.version);</script></div>
+</div>
+<div class="fila" id="donutchart"></div>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="info">
+<div class="info_1">Operating System: </div><div class="info_2"><script>document.write(bowser.os + ' ' + bowser.osversion);</script></div>
+</div>
+<div class="fila" id="top_x_div"></div>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="info">
+<div class="info_1">Device: </div><div class="info_2"><script>document.write(bowser.mobi);</script></div>
+</div>
+<div class="fila" id="piechart"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="row display-flex">
+<div class="col-xs-12 col-md-6">
+<div class="panel panel-default mi_panel">
+<div class="panel-body">
+<div class="encabezado">
+Screen:
+</div>
+<div class="texto_3">
+<img class="icono_1" alt="screen" src="/img/widescreen.png">Width/height:
+<script>document.write(screen.width + ' x ' + screen.height);</script>
+</div>
+<div class="encabezado_1">
+Window:
+</div>
+<div class="texto_3">
+<img class="icono_1" alt="window" src="/img/application_xp.png">Width/height:
+<script>document.write($(window).width() + ' x ' + $(window).height());</script>
+</div>
+<div class="encabezado_1">
+Browser Language:
+</div>
+<div class="texto_3">
+<img class="icono_1" alt="screen" src="/img/comment.png">Preferred language: Unknown </div>
+<div class="encabezado_1">
+Referrer:
+</div>
+<div class="texto_3" id="ref">
+<img class="icono_1" alt="referrer" src="/img/link_go.png">URL:
+<script>$(document).ready(function(){$("#ref").append(ref())});</script>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xs-12 col-md-6">
+<div class="panel panel-default mi_panel">
+<div class="panel-body">
+<div class="encabezado">
+<img class="icono_1" alt="header" src="/img/document_info.png">Headers:
+</div>
+<div class="headers"><span class="it">Accept-Encoding:</span> gzip</div><div class="headers"><span class="it">User-Agent:</span> Wget/1.17.1 (linux-gnu)</div><div class="headers"><span class="it">Accept:</span> */*</div><div class="headers"><span class="it">Cookie:</span> __cfduid=d33ac5ead190b5fbe6ccaed8c96a8b1b21520730033</div> </div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="panel panel-default bloque_2">
+<div class="panel-body">
+<img alt="stats" src="/img/combined_chart.png">
+Currently most of internet traffic is served over IPv4, consisting in four series of numbers ranging from 0 to 255. There are "only" 4 billion IPv4 adresses, to avoid running out of available addresses IPv6 was developed,
+expanding the number to 340 trillion trillion trillion (2<sup>128</sup>).
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="panel panel-default bloque_2">
+<div class="panel-body">
+<h4>IPv6 Adoption</h4>
+<div id="legend_div"></div>
+<div id="chart_div"></div>
+<script src="//www.google.com/jsapi"></script>
+<script src="//www.google.com/intl/en_ALL/ipv6/statistics/data/adoption.js"></script>
+<script src="//www.gstatic.com/external_hosted/dygraphs/dygraph-combined.js"></script>
+<script src="https://www.google.com/intl/en/ipv6/js/statistics.js"></script>
+</div>
+</div>
+</div>
+</div>
+<div class="pie">
+MyIP.com 2018.
+</div>
+</div>
+</div>
+<script type="text/javascript" src="/js/graf.js"></script>
+<script type="text/javascript">
+    pais('United States', 'US');
+    nav();
+    os();
+    dev();
+    copy();
+</script>
+
+<div id="myModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title text-center">Contact</h4>
+</div>
+<div class="modal-body text-center">
+<p>For inquiries or feedback please get in touch at:<br><img src="/img/contact.png" alt="contact" class="contact"></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+var sc_project=11414134; 
+var sc_invisible=1; 
+var sc_security="8abb4a32"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="web analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/11414134/0/8abb4a32/1/" alt="web
+analytics"></a></div></noscript>
+
+</body>
+</html>
